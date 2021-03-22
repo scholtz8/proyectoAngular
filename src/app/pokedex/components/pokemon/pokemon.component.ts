@@ -19,19 +19,17 @@ export class PokemonComponent implements OnInit {
   ) { 
     thisRoute.params.subscribe( param => {
       pokemonApiService.getPokemonByNumber(param.num).subscribe(resp => {
-        this.pokemon = resp;
-        this.setDefaultImage();
-        console.log('pokemon -->',this.pokemon);
+        this.pokemon = resp;        
       })
     })
   }
 
-  public setDefaultImage() : void {
-    this.imageSource = this.pokemon.sprites.other['official-artwork'].front_default;
+  ngOnInit() {
+    this.setDefaultImage();
   }
 
-  ngOnInit() {
-    
+  public setDefaultImage() : void {
+    this.imageSource = this.pokemon.sprites.other['official-artwork'].front_default;
   }
 
 }

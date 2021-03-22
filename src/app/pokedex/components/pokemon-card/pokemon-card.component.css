@@ -1,0 +1,12 @@
+
+.mat-card{
+    width: 300px;
+    border-radius: 5%;
+    background-color: goldenrod;
+}
+
+
+.mar-card-title{
+    margin-top: 100px;
+    padding: 20px;
+}
