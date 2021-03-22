@@ -16,11 +16,7 @@ export class PokemonApiService {
   }
 
   getPokemonByNumber(num: number): Observable<Pokemon>{
-    return this.httpClient.get<any>(environment.pokeApiEndpoint + 'pokemon/'+ num);
+    return this.httpClient.get<any>(environment.pokeApiEndpoint + 'pokemon/'+ num + '/');
   }
-
-  getPokemonList(limit: number, offset: number) : Observable<any>{
-    return this.httpClient.get<any>(this.pokemonApiUrl + 'pokemon?limit='+ limit + '&offset=' + offset);
-  }
-
+  
 }

@@ -1,4 +1,27 @@
-<p></p>
-<a [routerLink]="['../pokemon',1]">pokemon 1</a>
-<a [routerLink]="['../pokemon',2]">pokemon 2</a>
-<a [routerLink]="['../pokemon',3]">pokemon 3</a>
+
+<mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+        <div class="mat-elevation-z8" >
+            <table mat-table [dataSource]="dataSource" matSort>
+          
+              <ng-container matColumnDef="position" >
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+                <td mat-cell *matCellDef="let row"> {{row.position}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="name" >
+                <th mat-header-cell *matHeaderCellDef > Nombre </th>
+                <td mat-cell *matCellDef="let row"> {{row.name | uppercase}} </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['pokemonCard', row.position ]"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+          </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <router-outlet></router-outlet>
+    </mat-grid-tile>
+  </mat-grid-list>

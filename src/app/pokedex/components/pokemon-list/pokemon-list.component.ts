@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonApiService } from 'src/app/services/pokemon-api.service';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,19 +11,43 @@ import { PokemonApiService } from 'src/app/services/pokemon-api.service';
 })
 export class PokemonListComponent implements OnInit {
 
-  public pokemonList: Pokemon[];
+  public pokemonList: PokeColumn[] = [];
+  public displayedColumns: string[] = ['position', 'name'];
+  public dataSource = new MatTableDataSource<PokeColumn>(this.pokemonList);
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, null) sort: MatSort;
+
 
   constructor(
     private pokemonApiService: PokemonApiService
   ) {
-      pokemonApiService.getPokemonList(150,1).subscribe(resp => {
-        console.log(resp);
-        this.pokemonList = resp.results;
-      });
+    this.getPokemonList(150,1);
   }
 
   ngOnInit() {
-    console.log('POKEMON LIST',this.pokemonList);
+      this.dataSource.sort = this.sort;      
   }
 
+  ngAfterView() {
+    this.dataSource.sort = this.sort;
+  }
+
+  getPokemonList(limit: number, offset: number){
+    for(let i=offset; i<=limit; i++){
+      this.pokemonApiService.getPokemonByNumber(i).subscribe(
+        res => {
+          this.pokemonList.push(new PokeColumn(i, res.name));
+          this.dataSource = new MatTableDataSource<PokeColumn>(this.pokemonList);
+          this.dataSource.paginator = this.paginator;
+        }
+      )
+    }
+  }  
+}
+
+
+export class PokeColumn {
+  constructor(public position: number, public name: string) {
+  }
 }
