@@ -1,3 +1,4 @@
+
 <mat-card class="card">
   
     <mat-card-header>
@@ -9,8 +10,8 @@
   
     <mat-card-content>
       <mat-chip-list>
-        <mat-chip ></mat-chip>
+        <mat-chip [routerLink]="['/pokedex/pokemon', pokemon?.id ]">INFO</mat-chip>
       </mat-chip-list>
     </mat-card-content>
   
-  </mat-card>
+</mat-card>

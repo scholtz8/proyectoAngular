@@ -16,16 +16,15 @@ export class PokemonComponent implements OnInit {
   constructor(
     private pokemonApiService: PokemonApiService,
     private thisRoute : ActivatedRoute
-  ) { 
-    thisRoute.params.subscribe( param => {
-      pokemonApiService.getPokemonByNumber(param.num).subscribe(resp => {
-        this.pokemon = resp;        
-      })
-    })
-  }
+  ) {}
 
   ngOnInit() {
-    this.setDefaultImage();
+    this.thisRoute.params.subscribe( param => {
+      this.pokemonApiService.getPokemonByNumber(param.num).subscribe(resp => {
+        this.pokemon = resp;
+        this.setDefaultImage();        
+      })
+    })
   }
 
   public setDefaultImage() : void {

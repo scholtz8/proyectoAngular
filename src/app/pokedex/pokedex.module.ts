@@ -9,6 +9,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule, MatCardModule, MatChipsModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [PokemonListComponent, PokemonComponent, PokemonCardComponent],
@@ -20,7 +22,9 @@ import { MatSortModule, MatCardModule, MatChipsModule} from '@angular/material';
     MatTableModule,
     MatSortModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatRadioModule,
+    FormsModule
   ]
 })
 export class PokedexModule { }

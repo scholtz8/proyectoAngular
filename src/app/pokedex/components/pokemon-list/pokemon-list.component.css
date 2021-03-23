@@ -1,4 +1,8 @@
 
+.mat-grid-tile{
+    background-color: gray;
+}
+
 .mat-elevation-z8{
     width: 90%;
 }

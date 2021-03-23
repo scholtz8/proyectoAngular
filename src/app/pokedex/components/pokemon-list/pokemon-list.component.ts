@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonApiService } from 'src/app/services/pokemon-api.service';
@@ -19,6 +19,12 @@ export class PokemonListComponent implements OnInit {
   @ViewChild(MatSort, null) sort: MatSort;
 
 
+  public namePokemon: string;
+  public numberPokemon: number;
+  public imagePokemon: string;
+  imgModel = 'front_default';
+
+  
   constructor(
     private pokemonApiService: PokemonApiService
   ) {
@@ -45,6 +51,7 @@ export class PokemonListComponent implements OnInit {
     }
   }  
 }
+
 
 
 export class PokeColumn {

@@ -1,6 +1,17 @@
 
-<mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile>
+
+
+<mat-grid-list cols="2" rowHeight="24:1">
+
+    <mat-grid-tile [rowspan]=3>
+
+    </mat-grid-tile>        
+
+    <mat-grid-tile [rowspan]=23>
+      <router-outlet></router-outlet>
+    </mat-grid-tile>
+
+    <mat-grid-tile [rowspan]=20>
         <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
           
@@ -20,8 +31,6 @@
           
             <mat-paginator [pageSizeOptions]="[10]"  showFirstLastButtons></mat-paginator>
           </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <router-outlet></router-outlet>
-    </mat-grid-tile>
+    </mat-grid-tile>  
+
   </mat-grid-list>
