@@ -9,12 +9,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
 import { MatButtonModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AuthenticationComponent } from './components/authentication/authentication.component'
+import { MatCardModule, MatFormFieldModule} from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +30,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCheckboxModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

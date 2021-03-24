@@ -10,7 +10,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule, MatCardModule, MatChipsModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
-import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [PokemonListComponent, PokemonComponent, PokemonCardComponent],
@@ -23,8 +23,7 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatCardModule,
     MatChipsModule,
-    MatRadioModule,
-    FormsModule
+    MatRadioModule
   ]
 })
 export class PokedexModule { }

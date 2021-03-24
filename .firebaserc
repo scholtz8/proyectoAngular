@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pokemon-23e36": {
+      "hosting": {
+        "proyectoAngular": [
+          "pokemon-23e36"
+        ]
+      }
+    }
+  }
+}
