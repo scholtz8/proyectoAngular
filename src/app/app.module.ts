@@ -16,12 +16,14 @@ import { environment } from '../environments/environment';
 import { AuthenticationComponent } from './components/authentication/authentication.component'
 import { MatCardModule, MatFormFieldModule} from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ValidPasswordDirective } from './directives/valid-password.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ValidPasswordDirective
   ],
   imports: [
     BrowserModule,

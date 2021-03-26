@@ -4,17 +4,22 @@
     
 <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
     <p></p>
-    <div class="form-group" style="display: flex; justify-content: center;">
+    <div class="form-group">
       <input type="text" placeholder="Usuario" class="form-control" formControlName="mail" style="text-align: center;">
     </div>
     <p></p>
-    <div class="form-group" style="display: flex; justify-content: center;">
+    <div class="form-group" >
         <input type="password" placeholder="Contraseña" class="form-control" formControlName="pass" style="text-align: center;">
    </div>
    <p></p>
-  <p *ngIf="error" class="error">
-    {{ error }}
-  </p>
+    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert alert-danger" >
+        <div *ngIf="pass.errors.required">
+            Requerido
+        </div>
+        <div *ngIf="pass.errors.passwordValidation">
+            {{pass.errors.passwordValidation.message}}
+        </div>
+    </div>
   <div class="button">
     <button type="submit" style="background-color: brown; color: antiquewhite;" mat-button>oK</button>
   </div>
